@@ -20,8 +20,8 @@ android {
         applicationId "com.codex.milliclock"
         minSdk 26
         targetSdk 34
-        versionCode 1
-        versionName "1.0"
+        versionCode APP_VERSION_CODE.toInteger()
+        versionName APP_VERSION_NAME
     }
 
     signingConfigs {
