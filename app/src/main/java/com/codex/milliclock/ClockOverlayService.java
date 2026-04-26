@@ -32,12 +32,6 @@ import java.util.Locale;
 public class ClockOverlayService extends Service {
     private static final String CHANNEL_ID = "clock_overlay_channel";
     private static final int NOTIFICATION_ID = 7;
-    private static final DateTimeFormatter DATE_FORMATTER =
-            DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.US);
-    private static final DateTimeFormatter TIME_MAIN_FORMATTER =
-            DateTimeFormatter.ofPattern("HH:mm:ss.", Locale.US);
-    private static final DateTimeFormatter MILLIS_FORMATTER =
-            DateTimeFormatter.ofPattern("SSS", Locale.US);
 
     private WindowManager windowManager;
     private View overlayView;
@@ -47,6 +41,9 @@ public class ClockOverlayService extends Service {
     private TextView millisText;
     private TextView closeButton;
     private boolean closeButtonVisible = false;
+    private DateTimeFormatter dateFormatter;
+    private DateTimeFormatter timeMainFormatter;
+    private DateTimeFormatter millisFormatter;
     private final Handler mainHandler = new Handler(Looper.getMainLooper());
     private final Runnable hideCloseButtonRunnable = () -> {
         closeButtonVisible = false;
@@ -73,6 +70,7 @@ public class ClockOverlayService extends Service {
             return;
         }
 
+        initFormatters();
         createNotificationChannel();
         Notification notification = buildNotification();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
@@ -248,9 +246,9 @@ public class ClockOverlayService extends Service {
     private void updateClock() {
         long epochMillis = System.currentTimeMillis();
         ZonedDateTime dateTime = Instant.ofEpochMilli(epochMillis).atZone(ZoneId.systemDefault());
-        dateText.setText(dateTime.format(DATE_FORMATTER));
-        timeText.setText(dateTime.format(TIME_MAIN_FORMATTER));
-        millisText.setText(dateTime.format(MILLIS_FORMATTER));
+        dateText.setText(dateTime.format(dateFormatter));
+        timeText.setText(dateTime.format(timeMainFormatter));
+        millisText.setText(dateTime.format(millisFormatter));
     }
 
     private Notification buildNotification() {
@@ -285,6 +283,20 @@ public class ClockOverlayService extends Service {
 
     private int dp(int value) {
         return Math.round(getResources().getDisplayMetrics().density * value);
+    }
+
+    private void initFormatters() {
+        Locale locale = getCurrentLocale();
+        dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", locale);
+        timeMainFormatter = DateTimeFormatter.ofPattern("HH:mm:ss.", locale);
+        millisFormatter = DateTimeFormatter.ofPattern("SSS", locale);
+    }
+
+    private Locale getCurrentLocale() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return getResources().getConfiguration().getLocales().get(0);
+        }
+        return getResources().getConfiguration().locale;
     }
 
     private int measureTextWidth(TextView view, String sample) {
