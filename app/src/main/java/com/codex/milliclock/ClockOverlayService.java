@@ -146,7 +146,9 @@ public class ClockOverlayService extends Service {
         dateText.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
         dateText.setLetterSpacing(0.04f);
         dateText.setIncludeFontPadding(false);
+        dateText.setFontFeatureSettings("'tnum'");
         dateText.setShadowLayer(6f, 0f, 0f, 0xAA000000);
+        dateText.setMinWidth(measureTextWidth(dateText, "8888-88-88"));
 
         LinearLayout.LayoutParams dateParams = new LinearLayout.LayoutParams(
                 0,
@@ -185,14 +187,18 @@ public class ClockOverlayService extends Service {
         timeText.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
         timeText.setLetterSpacing(0.01f);
         timeText.setIncludeFontPadding(false);
+        timeText.setFontFeatureSettings("'tnum'");
         timeText.setShadowLayer(8f, 0f, 0f, 0xCC000000);
+        timeText.setMinWidth(measureTextWidth(timeText, "88:88:88."));
 
         millisText = new TextView(this);
         millisText.setTextColor(0xFFFF4D4D);
         millisText.setTextSize(23f);
         millisText.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
         millisText.setIncludeFontPadding(false);
+        millisText.setFontFeatureSettings("'tnum'");
         millisText.setShadowLayer(8f, 0f, 0f, 0xCC000000);
+        millisText.setMinWidth(measureTextWidth(millisText, "888"));
 
         LinearLayout.LayoutParams millisParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -279,6 +285,10 @@ public class ClockOverlayService extends Service {
 
     private int dp(int value) {
         return Math.round(getResources().getDisplayMetrics().density * value);
+    }
+
+    private int measureTextWidth(TextView view, String sample) {
+        return (int) Math.ceil(view.getPaint().measureText(sample));
     }
 
     private final class DragTouchListener implements View.OnTouchListener {
