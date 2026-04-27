@@ -19,6 +19,7 @@ Android floating clock app with a draggable overlay, split date/time layout, and
 - Min SDK 26
 - Target SDK 34
 - Gradle wrapper included
+- Package name: `com.bsxu.milliclock`
 
 ## Permissions
 
@@ -126,7 +127,7 @@ You can generate `ANDROID_KEYSTORE_BASE64` from your keystore file with a base64
 ```text
 app/
   src/main/
-    java/com/codex/milliclock/
+    java/com/bsxu/milliclock/
     res/
 .github/workflows/
 gradle/
