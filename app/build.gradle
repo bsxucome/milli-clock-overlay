@@ -13,11 +13,11 @@ if (hasReleaseSigning) {
 }
 
 android {
-    namespace 'com.codex.milliclock'
+    namespace 'com.bsxu.milliclock'
     compileSdk 35
 
     defaultConfig {
-        applicationId "com.codex.milliclock"
+        applicationId "com.bsxu.milliclock"
         minSdk 26
         targetSdk 34
         versionCode APP_VERSION_CODE.toInteger()
