@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">毫秒悬浮时钟</string>
+    <string name="app_name">Milli Clock Overlay</string>
     <string name="app_intro">读取系统时间戳，并显示一个可拖动的毫秒级悬浮时钟。</string>
     <string name="overlay_permission_missing">当前未授予悬浮窗权限，请先开启权限。</string>
     <string name="overlay_permission_granted">悬浮窗权限已开启，现在可以启动悬浮时钟。</string>
