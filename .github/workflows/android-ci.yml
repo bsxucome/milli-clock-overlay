@@ -1,4 +1,4 @@
-name: Android CI
+name: Android 持续集成
 
 on:
   push:
@@ -16,36 +16,36 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: 检出代码
         uses: actions/checkout@v5
 
-      - name: Set up Java
+      - name: 配置 Java 环境
         uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: "17"
           cache: gradle
 
-      - name: Prepare Android SDK path
+      - name: 配置 Android SDK 路径
         shell: bash
         run: |
           SDK_PATH="${ANDROID_SDK_ROOT:-$ANDROID_HOME}"
           if [ -z "$SDK_PATH" ]; then
-            echo "Android SDK path is not available on this runner."
+            echo "当前构建环境未提供 Android SDK 路径。"
             exit 1
           fi
           printf "sdk.dir=%s\n" "$SDK_PATH" > local.properties
 
-      - name: Remove local-only Windows Gradle override
+      - name: 移除本地 Windows 构建路径覆盖项
         run: sed -i '/^android.aapt2FromMavenOverride=/d' gradle.properties
 
-      - name: Make Gradle wrapper executable
+      - name: 授予 Gradle Wrapper 执行权限
         run: chmod +x ./gradlew
 
-      - name: Build Debug APK
+      - name: 构建调试版 APK
         run: ./gradlew assembleDebug
 
-      - name: Upload Debug APK
+      - name: 上传调试版 APK
         uses: actions/upload-artifact@v4
         with:
           name: app-debug-apk

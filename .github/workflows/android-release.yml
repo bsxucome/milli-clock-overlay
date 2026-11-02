@@ -1,4 +1,4 @@
-name: Android Release
+name: Android 版本发布
 
 on:
   push:
@@ -13,32 +13,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: 检出代码
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
-      - name: Set up Java
+      - name: 配置 Java 环境
         uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: "17"
           cache: gradle
 
-      - name: Prepare Android SDK path
+      - name: 配置 Android SDK 路径
         shell: bash
         run: |
           SDK_PATH="${ANDROID_SDK_ROOT:-$ANDROID_HOME}"
           if [ -z "$SDK_PATH" ]; then
-            echo "Android SDK path is not available on this runner."
+            echo "当前构建环境未提供 Android SDK 路径。"
             exit 1
           fi
           printf "sdk.dir=%s\n" "$SDK_PATH" > local.properties
 
-      - name: Remove local-only Windows Gradle override
+      - name: 移除本地 Windows 构建路径覆盖项
         run: sed -i '/^android.aapt2FromMavenOverride=/d' gradle.properties
 
-      - name: Prepare release signing
+      - name: 准备发布签名
         shell: bash
         env:
           ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
@@ -55,16 +55,16 @@ jobs:
               "keyPassword=$ANDROID_KEY_PASSWORD" \
               > keystore.properties
           else
-            echo "Release signing secrets are missing. The workflow will build an unsigned release APK."
+            echo "未配置完整的发布签名密钥，本次将生成未签名发布版 APK。"
           fi
 
-      - name: Make Gradle wrapper executable
+      - name: 授予 Gradle Wrapper 执行权限
         run: chmod +x ./gradlew
 
-      - name: Build Release APK
+      - name: 构建发布版 APK
         run: ./gradlew assembleRelease
 
-      - name: Prepare release assets
+      - name: 准备发布附件
         id: assets
         shell: bash
         run: |
@@ -95,7 +95,7 @@ jobs:
             echo "sha_name=$SHA_NAME"
           } >> "$GITHUB_OUTPUT"
 
-      - name: Upload release artifact
+      - name: 上传发布构建产物
         uses: actions/upload-artifact@v4
         with:
           name: release-apk-${{ github.ref_name }}
@@ -104,7 +104,7 @@ jobs:
             ${{ steps.assets.outputs.sha_path }}
           if-no-files-found: error
 
-      - name: Publish GitHub Release
+      - name: 发布 GitHub 版本
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
@@ -113,18 +113,21 @@ jobs:
           NOTES_FILE="release-notes.md"
 
           printf '%s\n' \
-            "Milli Clock Overlay ${TAG}" \
+            "毫秒悬浮时钟 ${TAG}" \
             "" \
-            "Included:" \
-            "- floating draggable clock overlay" \
-            "- split date and time layout" \
-            "- red milliseconds" \
-            "- tap to show the close button" \
-            "- Android 14+ foreground service compatibility" \
+            "主要功能：" \
+            "- 可拖动的悬浮时钟" \
+            "- 日期与时间分行显示" \
+            "- 毫秒读数以红色显示" \
+            "- 轻点时钟显示关闭按钮" \
+            "- 适配 Android 14 及以上版本的前台服务要求" \
             "" \
-            "Notes:" \
-            "- some system settings and security pages may hide overlays by design" \
-            "- if signing secrets are missing, this release contains an unsigned APK" \
+            "界面截图与操作说明：" \
+            "https://github.com/${GITHUB_REPOSITORY}/blob/${GITHUB_SHA}/README.md#界面截图" \
+            "" \
+            "使用说明：" \
+            "- 部分系统设置和安全页面会按系统规则隐藏第三方悬浮窗" \
+            "- 未配置签名密钥时生成未签名 APK，需签名后才能安装" \
             > "$NOTES_FILE"
 
           if gh release view "$TAG" >/dev/null 2>&1; then
@@ -132,11 +135,11 @@ jobs:
               "${{ steps.assets.outputs.apk_path }}" \
               "${{ steps.assets.outputs.sha_path }}" \
               --clobber
-            gh release edit "$TAG" --title "Milli Clock Overlay ${TAG}" --notes-file "$NOTES_FILE"
+            gh release edit "$TAG" --title "毫秒悬浮时钟 ${TAG}" --notes-file "$NOTES_FILE"
           else
             gh release create "$TAG" \
               "${{ steps.assets.outputs.apk_path }}" \
               "${{ steps.assets.outputs.sha_path }}" \
-              --title "Milli Clock Overlay ${TAG}" \
+              --title "毫秒悬浮时钟 ${TAG}" \
               --notes-file "$NOTES_FILE"
           fi
