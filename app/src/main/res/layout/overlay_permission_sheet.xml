@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/permission_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_permission_sheet">
+    <com.bsxu.milliclock.PermissionSheetLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="28dp"
+        android:paddingEnd="28dp"
+        android:paddingTop="28dp"
+        android:paddingBottom="20dp">
+        <TextView
+            android:id="@+id/permission_sheet_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:accessibilityHeading="true"
+            tools:targetApi="28"
+            android:fontFamily="sans-serif-medium"
+            android:includeFontPadding="false"
+            android:text="@string/permission_prompt_title"
+            android:textColor="@color/text_primary"
+            android:textSize="20sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="4dp"
+            android:text="@string/permission_prompt_reason"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/permission_step_one"
+                android:baselineAligned="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView style="@style/PermissionStepNumber" android:text="@string/permission_step_one_number" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/permission_step_one_title"
+                        style="@style/PermissionStepTitle"
+                        android:text="@string/permission_step_settings" />
+                    <TextView
+                        android:id="@+id/permission_step_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:minHeight="21sp"
+                        android:gravity="center_vertical"
+                        android:includeFontPadding="false"
+                        android:lineSpacingExtra="4dp"
+                        android:text="@string/permission_step_choose_app"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/permission_step_two"
+                android:baselineAligned="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+                <TextView style="@style/PermissionStepNumber" android:text="@string/permission_step_two_number" />
+                <TextView
+                    android:id="@+id/permission_step_two_title"
+                    style="@style/PermissionStepTitle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/permission_step_allow" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/permission_step_three"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+                <TextView style="@style/PermissionStepNumber" android:text="@string/permission_step_three_number" />
+                <TextView
+                    android:id="@+id/permission_step_three_title"
+                    style="@style/PermissionStepTitle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/permission_step_return" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/permission_actions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/permission_later_button"
+                style="@style/PermissionSheetButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_permission_later"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/permission_prompt_later"
+                android:textColor="@color/permission_secondary_foreground" />
+            <FrameLayout
+                android:id="@+id/permission_primary_container"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1">
+                <Button
+                    android:id="@+id/permission_settings_button"
+                    style="@style/PermissionSheetButton"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/bg_permission_primary"
+                    android:paddingStart="32dp"
+                    android:paddingEnd="32dp"
+                    android:text="@string/permission_prompt_action"
+                    android:textColor="@color/guide_green" />
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="12dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_permission_chevron" />
+            </FrameLayout>
+        </LinearLayout>
+    </com.bsxu.milliclock.PermissionSheetLayout>
+</ScrollView>

@@ -30,8 +30,19 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class ClockOverlayService extends Service {
+    public static final String ACTION_STATE_CHANGED = "com.bsxu.milliclock.action.OVERLAY_STATE_CHANGED";
     private static final String CHANNEL_ID = "clock_overlay_channel";
     private static final int NOTIFICATION_ID = 7;
+    private static volatile boolean overlayRunning;
+
+    public static boolean isOverlayRunning() {
+        return overlayRunning;
+    }
+
+    private void publishState(boolean running) {
+        overlayRunning = running;
+        sendBroadcast(new Intent(ACTION_STATE_CHANGED).setPackage(getPackageName()));
+    }
 
     private WindowManager windowManager;
     private View overlayView;
@@ -83,6 +94,7 @@ public class ClockOverlayService extends Service {
             startForeground(NOTIFICATION_ID, notification);
         }
         createOverlay();
+        publishState(true);
         Choreographer.getInstance().postFrameCallback(frameCallback);
     }
 
@@ -93,6 +105,7 @@ public class ClockOverlayService extends Service {
 
     @Override
     public void onDestroy() {
+        publishState(false);
         Choreographer.getInstance().removeFrameCallback(frameCallback);
         if (windowManager != null && overlayView != null) {
             windowManager.removeView(overlayView);

@@ -1,67 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF6F1">
+    android:background="@color/window_background">
+
+    <ScrollView
+        android:id="@+id/clock_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:clipToPadding="false">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:paddingStart="28dp"
+        android:paddingEnd="28dp"
+        android:paddingTop="28dp"
+        android:paddingBottom="32dp"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_name"
-            android:textColor="#111111"
-            android:textSize="28sp"
-            android:textStyle="bold" />
+            android:fontFamily="sans-serif-medium"
+            android:includeFontPadding="false"
+            android:textColor="@color/text_primary"
+            android:textSize="26sp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="14dp"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="4dp"
             android:text="@string/app_intro"
-            android:textColor="#444444"
-            android:textSize="16sp" />
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+        <com.bsxu.milliclock.RingToggleButton
+            android:id="@+id/toggle_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:importantForAccessibility="yes" />
 
         <TextView
             android:id="@+id/status_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textColor="#B00020"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/permission_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/grant_overlay_permission" />
-
-        <Button
-            android:id="@+id/start_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="12dp"
-            android:text="@string/start_overlay" />
+            android:drawableStart="@drawable/ic_permission_ready"
+            android:drawablePadding="7dp"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:textColor="@color/permission_status"
+            android:textSize="13sp" />
 
-        <Button
-            android:id="@+id/stop_button"
+        <View
+            android:id="@+id/tips_divider"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/stop_overlay" />
+            android:layout_height="1dp"
+            android:layout_marginTop="28dp"
+            android:background="@color/home_section_divider"
+            android:importantForAccessibility="no" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="@string/usage_tips"
-            android:textColor="#444444"
+            android:accessibilityHeading="true"
+            tools:targetApi="28"
+            android:fontFamily="sans-serif-medium"
+            android:includeFontPadding="false"
+            android:text="@string/usage_tips_title"
+            android:textColor="@color/text_primary"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/usage_tip_drag_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="4dp"
+            android:text="@string/usage_tip_drag"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/usage_tip_close_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="4dp"
+            android:text="@string/usage_tip_close"
+            android:textColor="@color/text_secondary"
             android:textSize="14sp" />
     </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</FrameLayout>

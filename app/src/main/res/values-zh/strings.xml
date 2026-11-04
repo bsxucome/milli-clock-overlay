@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Milli Clock Overlay</string>
-    <string name="app_intro">读取系统时间戳，并显示一个可拖动的毫秒级悬浮时钟。</string>
+    <string name="app_intro">读取系统时间戳，显示可拖动的毫秒级悬浮窗</string>
     <string name="overlay_permission_missing">当前未授予悬浮窗权限，请先开启权限。</string>
-    <string name="overlay_permission_granted">悬浮窗权限已开启，现在可以启动悬浮时钟。</string>
+    <string name="overlay_permission_granted">悬浮窗权限已开启</string>
     <string name="grant_overlay_permission">授予悬浮窗权限</string>
     <string name="start_overlay">启动悬浮时钟</string>
     <string name="stop_overlay">停止悬浮时钟</string>
-    <string name="usage_tips">提示：拖动悬浮窗可移动位置；轻点悬浮时间可在右上角显示关闭按钮。</string>
+    <string name="overlay_running">运行中</string>
+    <string name="overlay_stopped">未开启</string>
+    <string name="overlay_start_failed">悬浮时钟启动失败，请检查悬浮窗权限后重试。</string>
+    <string name="permission_prompt_title">先开启悬浮窗权限</string>
+    <string name="permission_prompt_reason">这样时钟才能显示在其他应用上方。</string>
+    <string name="permission_step_settings">进入系统设置</string>
+    <string name="permission_step_choose_app">如出现应用列表，选择「Milli Clock Overlay」。</string>
+    <string name="permission_step_allow">开启「显示在其他应用上层」</string>
+    <string name="permission_step_return">返回应用，时钟自动启动</string>
+    <string name="permission_prompt_action">去开启权限</string>
+    <string name="permission_prompt_later">暂不开启</string>
+    <string name="overlay_settings_unavailable">无法打开权限设置，请在系统设置中为本应用开启悬浮窗权限。</string>
+    <string name="usage_tips_title">小提示</string>
+    <string name="usage_tip_drag"><annotation emphasis="action">按住悬浮窗拖动</annotation>，可调整位置。</string>
+    <string name="usage_tip_close"><annotation emphasis="action">轻点时钟</annotation>，再点右上角「×」关闭。</string>
     <string name="notification_title">毫秒时钟正在运行</string>
     <string name="notification_text">保持悬浮层显示，并持续刷新系统时间。</string>
     <string name="notification_channel_name">悬浮时钟</string>

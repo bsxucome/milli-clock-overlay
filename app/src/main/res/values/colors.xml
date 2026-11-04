@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="window_background">#FFF6F1</color>
+    <color name="window_background">#FFFFFF</color>
+    <color name="text_primary">#29322E</color>
+    <color name="text_secondary">#636E67</color>
+    <color name="hint_action_foreground">#435248</color>
+    <color name="permission_status">#557160</color>
+    <color name="home_section_divider">#E9EEEB</color>
+    <color name="guide_green">#315C43</color>
+    <color name="guide_button">#D6ECDF</color>
+    <color name="guide_button_pressed">#BDDCC9</color>
+    <color name="permission_step_background">#EAF3ED</color>
+    <color name="permission_step_foreground">#527660</color>
+    <color name="permission_secondary_background">#F4F6F4</color>
+    <color name="permission_secondary_border">#E1E7E3</color>
+    <color name="permission_secondary_foreground">#59655D</color>
+    <color name="ring_inactive_highlight">#FFFFFF</color>
+    <color name="ring_inactive_mid">#F3F6F4</color>
+    <color name="ring_inactive_shadow">#DCE5DF</color>
+    <color name="ring_inactive_foreground">#435248</color>
+    <color name="ring_inactive_inner_shadow">#06000000</color>
+    <color name="ring_inactive_inner_border">#06000000</color>
+    <color name="ring_shadow_edge">#0F000000</color>
+    <color name="ring_shadow_ambient">#0A000000</color>
+    <color name="ring_active_highlight">#E0F1E6</color>
+    <color name="ring_active_mid">#B7DDC5</color>
+    <color name="ring_active_shadow">#8FBEA1</color>
+    <color name="ring_active_foreground">#345F44</color>
+    <color name="ring_active_inner_shadow">#0B4D835C</color>
+    <color name="ring_active_inner_border">#3394B89F</color>
 </resources>

@@ -23,6 +23,10 @@
             </intent-filter>
         </activity>
 
+        <receiver
+            android:name=".AutomationReceiver"
+            android:exported="true" />
+
         <service
             android:name=".ClockOverlayService"
             android:enabled="true"

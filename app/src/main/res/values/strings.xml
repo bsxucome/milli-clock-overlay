@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Milli Clock Overlay</string>
-    <string name="app_intro">Reads the system timestamp and shows a draggable floating clock with millisecond precision.</string>
+    <string name="app_intro">Reads the system timestamp in a draggable millisecond overlay.</string>
     <string name="overlay_permission_missing">Overlay permission is not granted yet. Please enable it first.</string>
-    <string name="overlay_permission_granted">Overlay permission granted. You can start the floating clock now.</string>
+    <string name="overlay_permission_granted">Overlay permission enabled</string>
     <string name="grant_overlay_permission">Grant Overlay Permission</string>
     <string name="start_overlay">Start Floating Clock</string>
     <string name="stop_overlay">Stop Floating Clock</string>
-    <string name="usage_tips">Tip: drag the overlay to move it. Tap the floating clock to show the close button in the top-right corner.</string>
+    <string name="overlay_running">Running</string>
+    <string name="overlay_stopped">Stopped</string>
+    <string name="overlay_start_failed">Unable to start the clock. Check overlay permission and try again.</string>
+    <string name="permission_prompt_title">Enable overlay permission first</string>
+    <string name="permission_prompt_reason">This lets the clock appear over other apps.</string>
+    <string name="permission_step_settings">Open system Settings</string>
+    <string name="permission_step_one_number" translatable="false">1</string>
+    <string name="permission_step_two_number" translatable="false">2</string>
+    <string name="permission_step_three_number" translatable="false">3</string>
+    <string name="permission_step_choose_app">If an app list appears, select Milli Clock Overlay.</string>
+    <string name="permission_step_allow">Allow display over other apps</string>
+    <string name="permission_step_return">Return here; the clock starts automatically</string>
+    <string name="permission_prompt_action">Open settings</string>
+    <string name="permission_prompt_later">Not now</string>
+    <string name="overlay_settings_unavailable">Unable to open permission settings. Enable overlay permission for this app in system Settings.</string>
+    <string name="usage_tips_title">Quick tips</string>
+    <string name="usage_tip_drag"><annotation emphasis="action">Hold and drag the overlay</annotation> to move it.</string>
+    <string name="usage_tip_close"><annotation emphasis="action">Tap the clock</annotation>, then tap × in the top-right corner to close.</string>
     <string name="notification_title">Millisecond clock is running</string>
     <string name="notification_text">Keeps the floating overlay visible and refreshes the system time continuously.</string>
     <string name="notification_channel_name">Floating Clock</string>

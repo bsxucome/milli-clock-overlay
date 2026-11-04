@@ -110,25 +110,17 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           TAG="${GITHUB_REF_NAME}"
-          NOTES_FILE="release-notes.md"
-
-          printf '%s\n' \
-            "毫秒悬浮时钟 ${TAG}" \
-            "" \
-            "主要功能：" \
-            "- 可拖动的悬浮时钟" \
-            "- 日期与时间分行显示" \
-            "- 毫秒读数以红色显示" \
-            "- 轻点时钟显示关闭按钮" \
-            "- 适配 Android 14 及以上版本的前台服务要求" \
-            "" \
-            "界面截图与操作说明：" \
-            "https://github.com/${GITHUB_REPOSITORY}/blob/${GITHUB_SHA}/README.md#界面截图" \
-            "" \
-            "使用说明：" \
-            "- 部分系统设置和安全页面会按系统规则隐藏第三方悬浮窗" \
-            "- 未配置签名密钥时生成未签名 APK，需签名后才能安装" \
-            > "$NOTES_FILE"
+          NOTES_FILE="docs/releases/${TAG}.md"
+          if [ ! -f "$NOTES_FILE" ]; then
+            NOTES_FILE="build/release-notes.md"
+            printf '%s\n' \
+              "毫秒悬浮时钟 ${TAG}" \
+              "" \
+              "下载下方 APK 安装，支持 Android 8.0 及以上版本。" \
+              "" \
+              "[界面截图与使用说明](https://github.com/${GITHUB_REPOSITORY}/blob/${GITHUB_SHA}/README.md)" \
+              > "$NOTES_FILE"
+          fi
 
           if gh release view "$TAG" >/dev/null 2>&1; then
             gh release upload "$TAG" \
