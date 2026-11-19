@@ -29,7 +29,7 @@ public class MainActivity extends Activity implements OverlayPermissionSheet.Lis
     private static final String PERMISSION_SHEET_TAG = "overlay_permission_sheet";
 
     private TextView statusText;
-    private RingToggleButton toggleButton;
+    private PanelToggleButton toggleButton;
     private boolean togglePending;
     private boolean autoStartOverlay;
     private boolean autoStartHandled;
@@ -67,7 +67,6 @@ public class MainActivity extends Activity implements OverlayPermissionSheet.Lis
                 requestOverlayStart();
             }
         });
-
     }
 
     private void styleUsageTip(TextView view, int textResource) {
@@ -79,7 +78,7 @@ public class MainActivity extends Activity implements OverlayPermissionSheet.Lis
             int start = text.getSpanStart(annotation);
             int end = text.getSpanEnd(annotation);
             text.setSpan(new TypefaceSpan("sans-serif-medium"), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            text.setSpan(new ForegroundColorSpan(getColor(R.color.hint_action_foreground)),
+            text.setSpan(new ForegroundColorSpan(getColor(R.color.home_action_ink)),
                     start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
         view.setText(text);

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="#337F9AB3">
+    <item>
+        <selector>
+            <item android:state_selected="true">
+                <shape>
+                    <solid android:color="@color/home_running_background" />
+                    <corners android:bottomLeftRadius="15dp" android:bottomRightRadius="15dp" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <solid android:color="@color/home_start_background" />
+                    <corners android:bottomLeftRadius="15dp" android:bottomRightRadius="15dp" />
+                </shape>
+            </item>
+        </selector>
+    </item>
+</ripple>

@@ -1,24 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clock_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/window_background">
-
-    <ScrollView
-        android:id="@+id/clock_screen"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:clipToPadding="false">
-
+    android:background="@color/window_background"
+    android:fillViewport="true">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="28dp"
         android:paddingEnd="28dp"
         android:paddingTop="28dp"
-        android:paddingBottom="32dp"
+        android:paddingBottom="24dp"
         android:orientation="vertical">
 
         <TextView
@@ -27,7 +21,7 @@
             android:text="@string/app_name"
             android:fontFamily="sans-serif-medium"
             android:includeFontPadding="false"
-            android:textColor="@color/text_primary"
+            android:textColor="@color/home_title"
             android:textSize="26sp" />
 
         <TextView
@@ -37,70 +31,115 @@
             android:includeFontPadding="false"
             android:lineSpacingExtra="4dp"
             android:text="@string/app_intro"
-            android:textColor="@color/text_secondary"
+            android:textColor="@color/home_body"
             android:textSize="14sp" />
 
-        <com.bsxu.milliclock.RingToggleButton
-            android:id="@+id/toggle_button"
+        <LinearLayout
+            android:id="@+id/home_clock_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:importantForAccessibility="yes" />
+            android:layout_marginTop="38dp"
+            android:background="@drawable/bg_home_preview_card"
+            android:orientation="vertical"
+            android:padding="1dp">
 
-        <TextView
-            android:id="@+id/status_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="12dp"
-            android:drawableStart="@drawable/ic_permission_ready"
-            android:drawablePadding="7dp"
-            android:gravity="center"
-            android:includeFontPadding="false"
-            android:textColor="@color/permission_status"
-            android:textSize="13sp" />
+            <include layout="@layout/home_overlay_preview" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/home_card_border"
+                android:importantForAccessibility="no" />
+
+            <com.bsxu.milliclock.PanelToggleButton
+                android:id="@+id/toggle_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="80dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="14dp"
+                android:background="@drawable/bg_panel_toggle"
+                android:clickable="true"
+                android:focusable="true"
+                android:importantForAccessibility="yes">
+
+                <View
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_panel_power"
+                    android:importantForAccessibility="no" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="14dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/toggle_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:importantForAccessibility="no"
+                        android:includeFontPadding="false"
+                        android:text="@string/start_overlay"
+                        android:textColor="@color/home_toggle_label"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/status_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/home_toggle_status"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </com.bsxu.milliclock.PanelToggleButton>
+        </LinearLayout>
 
         <View
             android:id="@+id/tips_divider"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="40dp"
             android:background="@color/home_section_divider"
             android:importantForAccessibility="no" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="22dp"
             android:accessibilityHeading="true"
             tools:targetApi="28"
             android:fontFamily="sans-serif-medium"
             android:includeFontPadding="false"
             android:text="@string/usage_tips_title"
-            android:textColor="@color/text_primary"
+            android:textColor="@color/home_title"
             android:textSize="15sp" />
 
         <TextView
             android:id="@+id/usage_tip_drag_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="11dp"
             android:includeFontPadding="false"
             android:lineSpacingExtra="4dp"
             android:text="@string/usage_tip_drag"
-            android:textColor="@color/text_secondary"
+            android:textColor="@color/home_body"
             android:textSize="14sp" />
 
         <TextView
             android:id="@+id/usage_tip_close_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:includeFontPadding="false"
             android:lineSpacingExtra="4dp"
             android:text="@string/usage_tip_close"
-            android:textColor="@color/text_secondary"
+            android:textColor="@color/home_body"
             android:textSize="14sp" />
     </LinearLayout>
-    </ScrollView>
-</FrameLayout>
+</ScrollView>

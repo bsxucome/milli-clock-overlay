@@ -2,6 +2,9 @@
 <resources>
     <string name="app_name">Milli Clock Overlay</string>
     <string name="app_intro">Reads the system timestamp in a draggable millisecond overlay.</string>
+    <string name="overlay_preview_title">Floating clock preview</string>
+    <string name="overlay_preview_date" translatable="false">2026-11-19</string>
+    <string name="overlay_preview_time" translatable="false">13:49:21.<font color="#FFB5AE">814</font></string>
     <string name="overlay_permission_missing">Overlay permission is not granted yet. Please enable it first.</string>
     <string name="overlay_permission_granted">Overlay permission enabled</string>
     <string name="grant_overlay_permission">Grant Overlay Permission</string>

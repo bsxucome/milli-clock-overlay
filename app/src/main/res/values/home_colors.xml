@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="home_title">#27313B</color>
+    <color name="home_body">#55616D</color>
+    <color name="home_action_ink">#40566E</color>
+    <color name="home_running_ink">#3A536F</color>
+    <color name="home_start_background">#486480</color>
+    <color name="home_start_secondary">#ECF2F8</color>
+    <color name="home_running_background">#E7EEF6</color>
+    <color name="home_card_border">#DCE5EE</color>
+    <color name="home_section_divider">#E5EBF1</color>
+    <color name="home_preview_scene">#F2F5F8</color>
+    <color name="home_preview_paper">#FCFDFE</color>
+    <color name="home_preview_detail">#BECBD9</color>
+    <color name="home_preview_clock">#79838C</color>
+    <color name="home_ring_idle_mid">#F4F6F8</color>
+    <color name="home_ring_idle_edge">#DDE4EC</color>
+    <color name="home_ring_running_highlight">#E7EEF7</color>
+    <color name="home_ring_running_mid">#CDDBED</color>
+    <color name="home_ring_running_edge">#A8BDD7</color>
+</resources>
