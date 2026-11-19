@@ -2,14 +2,12 @@
 <resources>
     <color name="window_background">#FFFFFF</color>
     <color name="text_primary">#29322E</color>
-    <color name="text_secondary">#636E67</color>
     <color name="permission_status">#557160</color>
-    <color name="guide_green">#315C43</color>
-    <color name="guide_button">#D6ECDF</color>
-    <color name="guide_button_pressed">#BDDCC9</color>
-    <color name="permission_step_background">#EAF3ED</color>
-    <color name="permission_step_foreground">#527660</color>
-    <color name="permission_secondary_background">#F4F6F4</color>
-    <color name="permission_secondary_border">#E1E7E3</color>
-    <color name="permission_secondary_foreground">#59655D</color>
+    <color name="permission_primary_background">@color/home_start_background</color>
+    <color name="permission_primary_pressed">@color/home_running_ink</color>
+    <color name="permission_step_background">@color/home_running_background</color>
+    <color name="permission_step_foreground">@color/home_running_ink</color>
+    <color name="permission_secondary_background">@color/home_preview_scene</color>
+    <color name="permission_secondary_border">@color/home_card_border</color>
+    <color name="permission_secondary_foreground">@color/home_action_ink</color>
 </resources>

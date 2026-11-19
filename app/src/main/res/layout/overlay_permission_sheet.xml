@@ -22,7 +22,7 @@
             android:fontFamily="sans-serif-medium"
             android:includeFontPadding="false"
             android:text="@string/permission_prompt_title"
-            android:textColor="@color/text_primary"
+            android:textColor="@color/home_title"
             android:textSize="20sp" />
         <TextView
             android:layout_width="match_parent"
@@ -31,7 +31,7 @@
             android:includeFontPadding="false"
             android:lineSpacingExtra="4dp"
             android:text="@string/permission_prompt_reason"
-            android:textColor="@color/text_secondary"
+            android:textColor="@color/home_body"
             android:textSize="14sp" />
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,7 +64,7 @@
                         android:includeFontPadding="false"
                         android:lineSpacingExtra="4dp"
                         android:text="@string/permission_step_choose_app"
-                        android:textColor="@color/text_secondary"
+                        android:textColor="@color/home_body"
                         android:textSize="13sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -129,7 +129,7 @@
                     android:paddingStart="32dp"
                     android:paddingEnd="32dp"
                     android:text="@string/permission_prompt_action"
-                    android:textColor="@color/guide_green" />
+                    android:textColor="@android:color/white" />
                 <ImageView
                     android:layout_width="18dp"
                     android:layout_height="18dp"
