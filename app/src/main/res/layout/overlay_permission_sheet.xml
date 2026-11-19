@@ -27,7 +27,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="4dp"
             android:includeFontPadding="false"
             android:lineSpacingExtra="4dp"
             android:text="@string/permission_prompt_reason"
@@ -36,7 +36,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:orientation="vertical">
             <LinearLayout
                 android:id="@+id/permission_step_one"
@@ -45,35 +45,19 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView style="@style/PermissionStepNumber" android:text="@string/permission_step_one_number" />
-                <LinearLayout
+                <TextView
+                    android:id="@+id/permission_step_one_title"
+                    style="@style/PermissionStepTitle"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/permission_step_one_title"
-                        style="@style/PermissionStepTitle"
-                        android:text="@string/permission_step_settings" />
-                    <TextView
-                        android:id="@+id/permission_step_details"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:minHeight="21sp"
-                        android:gravity="center_vertical"
-                        android:includeFontPadding="false"
-                        android:lineSpacingExtra="4dp"
-                        android:text="@string/permission_step_choose_app"
-                        android:textColor="@color/home_body"
-                        android:textSize="13sp" />
-                </LinearLayout>
+                    android:text="@string/permission_step_settings" />
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/permission_step_two"
                 android:baselineAligned="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
                 <TextView style="@style/PermissionStepNumber" android:text="@string/permission_step_two_number" />
                 <TextView
@@ -99,11 +83,21 @@
                     android:text="@string/permission_step_return" />
             </LinearLayout>
         </LinearLayout>
+        <TextView
+            android:id="@+id/permission_step_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="4dp"
+            android:text="@string/permission_step_choose_app"
+            android:textColor="@color/home_body"
+            android:textSize="13sp" />
         <LinearLayout
             android:id="@+id/permission_actions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="19dp"
             android:orientation="horizontal">
             <Button
                 android:id="@+id/permission_later_button"
