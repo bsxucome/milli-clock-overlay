@@ -2,7 +2,7 @@
 
 读取系统时间戳，显示可拖动的毫秒级悬浮窗。使用其他应用时，也能随时查看日期与时间。
 
-[**下载最新版本**](https://github.com/bsxucome/milli-clock-overlay/releases/latest) · [v1.2.1 更新说明](https://github.com/bsxucome/milli-clock-overlay/releases/tag/v1.2.1)
+[**下载最新版本**](https://github.com/bsxucome/milli-clock-overlay/releases/latest) · [v1.2.2 更新说明](https://github.com/bsxucome/milli-clock-overlay/releases/tag/v1.2.2)
 
 支持 **Android 8.0 及以上版本**，旧版用户可直接覆盖安装。
 
@@ -17,11 +17,11 @@
 
 ## 界面截图
 
-以下为 v1.2.1 的实际界面。首页卡片里的时钟是样式示意，右图下方的浮窗显示截图时的设备时间。
+以下为 v1.2.2 的实际界面。首页卡片里的时钟是样式示意，右图下方的浮窗显示截图时的设备时间。
 
 | 应用首页 | 权限引导 | 运行状态 |
 | :---: | :---: | :---: |
-| <img src="docs/screenshots/main-screen.png" alt="首页的浮窗预览和雾蓝色启动按钮" width="240"> | <img src="docs/screenshots/permission-guide.png" alt="权限引导的三个步骤和底部两个等宽按钮" width="240"> | <img src="docs/screenshots/overlay-running.png" alt="浅蓝色停止按钮和显示红色毫秒的实际浮窗" width="240"> |
+| <img src="docs/screenshots/main-screen.png" alt="首页的浮窗预览和雾蓝色启动按钮" width="240"> | <img src="docs/screenshots/permission-guide.png" alt="权限引导的三个步骤和深雾蓝色授权按钮" width="240"> | <img src="docs/screenshots/overlay-running.png" alt="浅蓝色停止按钮和显示红色毫秒的实际浮窗" width="240"> |
 
 ## 如何使用
 
